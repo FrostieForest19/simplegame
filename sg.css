@@ -18,3 +18,12 @@
     position: absolute;
     top: 70%;
 }
+
+.fall {
+    background-color: rgb(125,125,0);
+    height: 12px;
+    width: 12px;
+    position: relative;
+    
+}
+
