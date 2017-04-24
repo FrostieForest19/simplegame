@@ -1,25 +1,36 @@
-$(document).ready(function()
-{
 
-$("#body").keydown(function(event) {
-    console.log("pressed key");
-    if (event.which === 37) {
-        $("#box").css("left", $("#box").offset().left - 20);
-    }
-    
-    else if (event.which === 39) {
-        $("#box").css("left", $("#box").offset().left + 20);
-    } 
-    else {
-        return;
-    }
+$(document).ready(function(){
+
+$("#body").keydown(function(event){
+var left = $("#box").offset().left
+var right = $("#p").offset().left
+var left2 =$("#p").offset().left + $("#p").width()
+var right2 = $("#box").offset().left + $("#box").width()
+
+        if (event.which === 37) {
+            if (left > right){
+                $("#box").css("left", $("#box").offset().left - 10);
+                }
+            else if (event.which === 39) {
+                $("#box").css("left", $("#box").offset().left + 10);
+                }
+        }
+        else if (event.which === 39) {
+            if(right2 < left2){
+                $("#box").css("left", $("#box").offset().left + 10);
+                }
+            else if (event.which === 37){
+            $("#box").css("left", $("#box").offset().left - 10);
+                }
+        }
+        else {
+            return;
+            }
 });
 
 setInterval(function(){
-    
 var rando = Math.random() * $("#p").width();
 var object = $(".fall");
-console.log(object)
 var bot = $(".fall").offset().top;
 var top1 = $("#box").offset().top - $(".fall").height();
     
@@ -31,6 +42,6 @@ var top1 = $("#box").offset().top - $(".fall").height();
         object.css("left", rando);
         object.css("top", 0);
     }    
-
+    
     }, 100);
-    });
+});
