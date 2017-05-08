@@ -31,6 +31,7 @@ var right2 = $("#box").offset().left + $("#box").width()
 });
 
 setInterval(function(){
+
 var rando = Math.random() * $("#p").width();
 var object = $(".fall");
 var bot = $(".fall").offset().top;
@@ -51,5 +52,6 @@ var top = $("#box").offset().top;
         score += 1;
         $("#total").html("Score: " + score);
     }
+    
     }, 100);
 });
